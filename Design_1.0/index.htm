@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Design 1.0</title>
+	
+
+	<style type="text/css">
+		.smartphone { 
+			position: relative; 
+			width: 380px; 
+			height: 640px; 
+			margin: auto; 
+			border: 16px #000 solid; 
+		  	border-top-width: 60px; 
+		  	border-bottom-width: 60px; 
+		  	border-radius: 36px; 
+		}
+		.smartphone:before { 
+		  	content: ''; 
+		  	display: block; 
+		  	width: 60px; 
+		  	height: 5px; 
+		  	position: absolute; 
+		  	top: -30px; 
+		  	left: 50%; 
+		  	transform: translate(-50%, -50%); 
+		  	background: #fff; 
+		  	border-radius: 10px; 
+		} 
+
+		.smartphone:after { 
+		  	content: ''; 
+		  	display: block; 
+		  	width: 35px; 
+		  	height: 35px; 
+		 	position: absolute; 
+		  	left: 50%; 
+		  	bottom: -65px; 
+		  	transform: translate(-50%, -50%); 
+		  	background: #fff; 
+		  	border-radius: 50%; 
+		  	box-sizing: border-box; 
+		  	border: 4px solid #d9d9d9; 
+		} 
+		.smartphone .content { 
+		  	width: 380px; 
+		  	height: 640px; 
+		  	background: white; 
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+		} 
+	</style>
+</head>
+<body>
+	<div class="smartphone"> 
+	  	<div class="content"> 
+	    	<iframe src="exApp.htm">
+	    	    Your browser does not support the iframe tag, for this example to work you may need to update your browser or switch to one like Chrome
+	    	</iframe>
+  		</div> 
+	</div> 
+
+</body>
+</html>
