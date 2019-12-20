@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fuel Gauge</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body, html {
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+			text-align: center;
+			font-family: Arial;
+		}
+		#chart {
+			width: 600px;
+			height: 375px;
+		}
+		#val {
+			font-size: 36px;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			height: 100%;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	</style>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['gauge']});
+	    google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Label','Value'],
+				['Fuel', {v:70, f:''}]
+			]);
+			var options = {
+				title: 'Fuel Level',
+				width: 600,
+				height: 375,
+				majorTicks: ['Empty', '1/4', '1/2', '3/4', 'Full'],
+				minorTicks: 5,
+				redFrom: 0, redTo: 15,
+				yellowFrom: 15, yellowTo: 30,
+				greenFrom: 75, greenTo: 100,
+			};
+			var chart = new google.visualization.Gauge(document.getElementById('chart'));
+			chart.draw(data, options);
+		}
+	</script>
+</head>
+<body>
+	<div id="chart"></div>
+	<span id="val">70% Full</span>
+	<br>
+	<br>
+	<br>
+	<span class="btn">Simulate a low amount of fuel</span>
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
+	<br>
+	<br>
+	<span style="color: #fff">Traffi Box</span>
+</body>
+</html>
