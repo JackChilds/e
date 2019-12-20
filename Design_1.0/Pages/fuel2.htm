@@ -37,7 +37,7 @@
 		function drawChart() {
 			var data = google.visualization.arrayToDataTable([
 				['Label','Value'],
-				['Fuel', {v:70, f:''}]
+				['Fuel', {v:10, f:''}]
 			]);
 			var options = {
 				title: 'Fuel Level',
@@ -56,16 +56,35 @@
 </head>
 <body>
 	<div id="chart"></div>
-	<span id="val">70% Full</span>
+	<span id="val">10% Full</span>
 	<br>
 	<br>
 	<br>
-	<span class="btn" onclick="top.window.location.href='fuel2.htm'">Simulate a low amount of fuel</span>
+	<span class="btn" onclick="top.window.location.href='fuel.htm'">Simulate a high amount of fuel</span>
 	<br>
 	<br>
 	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
 	<br>
 	<br>
 	<span style="color: #fff">Traffi Box</span>
+
+	<script type="text/javascript">
+		function notif() {
+            if (!("Notification" in window)) {
+                console.error("This browser doesn't support notifications");
+            }
+            else if (Notification.permission === "granted") {
+                var notification = new Notification("You are low on fuel!  Top up soon!");
+            }
+            else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(function (permission) {
+                    if (permission === "granted") {
+                        var notification = new Notification("You are low on fuel!  Top up soon!");
+                    }
+                });
+            }
+        }
+        notif();
+	</script>
 </body>
 </html>
