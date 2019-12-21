@@ -56,7 +56,6 @@ html, body {
 	cursor: pointer;
 }
 
-td span {
+td {
 	border: 2px solid #05b3f7;
-}
 }

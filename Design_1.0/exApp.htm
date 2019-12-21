@@ -5,13 +5,16 @@
 
 	<title>Phone App</title>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
 	<div class="nav wid100">
 		<span class="navItem active">Traffi Box</span>
-		<span class="navItem" style="font-size: 12px;"><i>Driving problems, made simple</i></span>
+		<span class="navItem" style="font-size: 11.9px;"><i>Driving problems, made simple</i></span>
+		<span class="navItem active fa" style="font-size: 24px; cursor: pointer;">&#xf013;</span>
 	</div>
 	<div class="wid100 text-center">
 		<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1981086.2803578011!2d-0.7400551709151484!3d52.340666951185646!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1576765433599!5m2!1sen!2suk" width="370" height="375" frameborder="0" style="border:0;" allowfullscreen="true">
@@ -23,27 +26,27 @@
 		<br>
 		<table style="width:100%" class="nav">
 			<tr style=" margin: 4px;" style=" margin: 4px;" style=" margin: 4px;">
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" onclick="goTo('fuel')" style="padding: 1px;">Fuel</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px" onclick="goTo('fuel')">
+					Fuel
 				</td>
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" onclick="goTo('battery')" style="padding: 1px;">Battery</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px" onclick="goTo('battery')">
+					Battery
 				</td>
 			</tr>
 			<tr style=" margin: 4px;" style=" margin: 4px;">
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" onclick="goTo('tPressure')" style="padding: 1px;">Tyres</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px" onclick="goTo('tPressure')">
+					Tyres
 				</td>
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" style="padding: 1px;">Lights</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px">
+					Lights
 				</td>
 			</tr>
 			<tr style=" margin: 4px;">
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" style="padding: 1px;">Lock</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px">
+					Lock
 				</td>
-				<td style=" margin: 4px;">
-					<span class="navItem nactive cPoint" style="padding: 1px;">Traffic</span>
+				<td class="navItem nactive cPoint" style="padding: 1px; margin: 4px">
+					Traffic
 				</td>
 			</tr>
 		</table>
