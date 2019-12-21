@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Light Status</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial;
+			overflow-x: hidden;
+			text-align: center;
+		}
+		#icon {
+			font-size: 150px;
+			color: #ff0000;
+		}
+		.bigT {
+			font-size: 36px;
+			color: #ff0000;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			height: 100%;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	</style>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<br>
+	<div class="fa" id="icon">&#xf0eb;</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<span class="bigT">Blown Bulb</span>
+	<br>
+	<br>
+	<br>
+	<br>
+	<span class="btn" onclick="window.location.href='light.htm'">Simulate a normal bulb</span>
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
+
+	<script type="text/javascript">
+		function notif() {
+            if (!("Notification" in window)) {
+                console.error("This browser doesn't support notifications");
+            }
+            else if (Notification.permission === "granted") {
+                var notification = new Notification("You have a blown bulb!  Get it fixed!");
+            }
+            else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(function (permission) {
+                    if (permission === "granted") {
+                        var notification = new Notification("You have a blown bulb!  Get it fixed!");
+                    }
+                });
+            }
+        }
+        notif();
+	</script>
+</body>
+</html>
