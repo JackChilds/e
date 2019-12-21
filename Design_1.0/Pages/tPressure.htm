@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tyre Pressure Gauge</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: Arial;
+			overflow-x: hidden;
+		}
+		#chart {
+			width: 600px;
+			height: 375px;
+		}
+		#val {
+			font-size: 36px;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			height: 100%;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	</style>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['gauge']});
+	    google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Label','Value'],
+				['Tyre Pressure', {v:62, f:'psi'}]
+			]);
+			var options = {
+				title: 'Fuel Level',
+				width: 600,
+				height: 375,
+				majorTicks: ['0', '10','20', '30', '40', '50'],
+				minorTicks: 5,
+				greenFrom: 56, greenTo: 70,
+				yellowFrom: 0, yellowTo: 56,
+				redFrom: 70, redTo: 100,
+				redColor: 'red',
+				yellowColor: 'red',
+			};
+			var chart = new google.visualization.Gauge(document.getElementById('chart'));
+			chart.draw(data, options);
+		}
+	</script>
+</head>
+<body>
+	<div id="chart"></div>
+	<span id="val">31 psi</span>
+	<br>
+	<br>
+	<br>
+	<span class="btn" onclick="window.location.href='tPressure2.htm'">Simulate a low tyre pressure</span>
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
+</body>
+</html>
