@@ -55,3 +55,8 @@ html, body {
 .cPoint {
 	cursor: pointer;
 }
+
+td span {
+	border: 2px solid #05b3f7;
+}
+}
