@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Settings Page</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
+			text-align: center;
+			font-family: Arial;
+		}
+		fieldset {
+			border: 2px solid #ddd;
+			border-bottom-right-radius: 7px;
+			padding: 0;
+			margin: 4px;
+		}
+		fieldset:hover {
+			border: 2px solid #05b3f7;
+		}
+		select {
+			box-sizing: border-box;
+			width: 90%;
+			padding: 8px;
+			margin: 8px;
+			background-color: #05b3f7;
+			color: #fff;
+			font-size: 18px;
+		}
+		option {
+			padding:8px;
+		}
+		select:focus, option:focus {
+			outline: none;
+			border: 2px solid #ddd;
+		}
+		label {
+			font-size: 14px;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			height: 100%;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Settings</h1>
+	
+	<fieldset>
+		<legend>Insurance Provider</legend>
+		<select>
+			<option>AA</option>
+			<option>Aviva</option>
+			<option>Churchill</option>
+			<option>Co-op</option>
+			<option>Confused.com</option>
+			<option>Direct Line</option>
+			<option>John Lewis</option>
+		</select>
+		<br>
+	</fieldset>
+
+	<fieldset>
+		<legend>Options</legend>
+		<label>Send notifications</label> <input type="checkbox" checked>
+		<br>
+		<label>Automatically check fuel, tyre pressure, lights, battery:</label> <input type="checkbox" checked> 
+		<br>
+	</fieldset>
+
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
+</body>
+</html>
