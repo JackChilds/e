@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fuel Cost</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			font-family: Arial;
+			overflow-x: hidden;
+		}
+		.bigT {
+			font-size: 36px;
+		}
+		.petrol, .diesel {
+			color: #eb4634;
+		}
+		.chartItem {
+			padding: 32px;
+			margin: 2px;
+			width: 49%;
+			background-color: #ddd;
+			border: 2px solid #05b3f7;
+			cursor: pointer;
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}
+		#chart div:nth-child(2), #chart2 div:nth-child(2){
+			background-color: #34eb55;
+		}
+		#chart div:nth-child(3), #chart2 div:nth-child(3) {
+			background-color: #cdeb34;
+		}
+		#chart div:nth-child(9), #chart2 div:nth-child(9) {
+			background-color: #eb4634;
+		}
+		#inpt {
+			width: 90%;
+			padding: 22px;
+			background-color: #fff;
+			text-align: center;
+			margin: 16px;
+			border: 2px solid #05b3f7;
+			border-bottom-right-radius: 7px;
+			position: fixed;
+			top: 12px;
+			left: 6px;
+		}
+		#inptBx {
+			width: 90%;
+			padding: 16px;
+			padding-left: 5px;
+			margin: 5px;
+			border: 2px solid #ddd;
+			border-bottom-right-radius: 7px;
+			z-index: 99;
+		}
+		#inptBx:focus {
+			outline: none;
+			border: 2px solid #05b3f7;
+		}
+		#inptBx:hover {
+			border: 2px solid #05b3f7;
+		}
+		.btn1 {
+			padding: 8px;
+			margin: 4px;
+			background-color: #05b3f7;
+			color: #fff;
+			cursor: pointer;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 12px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<br>
+	<span class="bigT">Fuel Costs</span>
+	<br>
+	<div id="chart">
+		<span class="petrol" id="petrol">Petrol Prices (pence per litre)</span>
+	</div>
+	<br>
+	<br>
+	<div style="position: absolute; top: 200px; right: 4px;">
+		<span class="btn1" onclick="window.location.href='#diesel'">Get diesel prices</span>
+	</div>
+
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'" style="position: fixed; right: 4px; top: 100px;">Go back to the home page</span>
+
+
+	<div id="chart2">
+		<span class="diesel" id="diesel">Diesel Prices (pence per litre)</span>
+	</div>
+	<br>
+	<br>
+	<div style="position: absolute; top: 850px; right: 4px;">
+		<span class="btn1" onclick="window.location.href='#petrol'">Get petrol prices</span>
+	</div>
+
+	<div id="inpt" style="display: none;">
+		<span style="float: right; font-size: 24px;cursor: pointer;color: red;" onclick="this.parentElement.style.display = 'none'">x</span>
+		<br>
+		<h4>Please enter the amount of litres that you will order:</h4>
+		<br>
+		<input type="number" id="inptBx" placeholder="Litres of fuel...">
+		<br>
+		<br>
+		<span id="calc" onclick="calculate()" class="btn1">Calculate</span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<span id="amount"></span>
+	</div>
+
+	<script type="text/javascript">
+		// Petrol
+
+		var petrol = {
+			'Asda' : 123,
+			'Tesco' : 124,
+			'Co-op' : 125,
+			'Sainsburys' : 125,
+			'Esso' : 127,
+			'Applegreen' : 127,
+			'BP' : 128,
+			'Shell' : 129
+		}
+
+		var out = "";
+
+		var pK = Object.keys(petrol);
+		var pV = Object.values(petrol);
+		pK.forEach(outPut);
+
+		var chart = document.getElementById('chart');
+		chart.innerHTML += out;
+
+		function outPut(value, index) {
+			out = out + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV[index] + ', \'petrol\')"><span class="left">' + value + '</span><span class="right">' + pV[index] + '</span></div>';
+		}
+
+		// Diesel
+
+		var diesel = {
+			'Asda' : 128,
+			'Tesco' : 129,
+			'Co-op' : 130,
+			'Sainsburys' : 130,
+			'Esso' : 131,
+			'Applegreen' : 131,
+			'BP' : 132,
+			'Shell' : 133
+		}
+
+		var out2 = "";
+
+		var pK2 = Object.keys(diesel);
+		var pV2 = Object.values(diesel);
+		pK2.forEach(outPut2);
+
+		var chart2 = document.getElementById('chart2');
+		chart2.innerHTML += out2;
+
+		function outPut2(value, index) {
+			out2 = out2 + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV2[index] + ', \'diesel\')"><span class="left">' + value + '</span><span class="right">' + pV2[index] + '</span></div>';
+		}
+
+
+
+
+		var c = '';
+		var p = 0;
+		var f = '';
+
+		var inpt = document.getElementById('inpt');
+
+		function workOut(comp, price, fuel) {
+			c = comp;
+			p = price;
+			f = fuel;
+			inpt.style.display = "block";
+		}
+
+		function calculate() {
+			var a = document.getElementById('amount');
+			a.innerHTML = "At " + p + " pence a litre at " + c + ", it will cost you " + document.getElementById("inptBx").value * p + " pence for " + document.getElementById("inptBx").value + " litres of " + f;
+		}
+	</script>
+</body>
+</html>
