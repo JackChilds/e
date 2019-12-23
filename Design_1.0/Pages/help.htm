@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Broken Down Page</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
+			text-align: center;
+			font-family: Arial;
+		}
+		fieldset {
+			border: 2px solid #ddd;
+			border-bottom-right-radius: 7px;
+			padding: 0;
+			margin: 4px;
+		}
+		fieldset:hover {
+			border: 2px solid #05b3f7;
+		}
+		a {
+			text-decoration: underline;
+			color: #05b3f7;
+		}
+		a:visited {
+			color: #ddd;
+		}
+		select {
+			box-sizing: border-box;
+			width: 90%;
+			padding: 8px;
+			margin: 8px;
+			background-color: #05b3f7;
+			color: #fff;
+			font-size: 18px;
+		}
+		option {
+			padding:8px;
+		}
+		select:focus, option:focus {
+			outline: none;
+			border: 2px solid #ddd;
+		}
+		label {
+			font-size: 14px;
+		}
+		.btn {
+			padding: 8px 12px;
+			font-weight: 500;
+			border-bottom-right-radius: 7px;
+			color: #fff;
+			background-color: #05b3f7;
+			font-size: 14px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>I've Broken Down!</h1>
+
+	<fieldset>
+		<legend>Options you can choose to take</legend>
+		<br>
+		<fieldset>
+			<legend>Use your breakdown coverage from your car insurance</legend>
+			<br>
+			Telephone number : 11111111111
+			<br>
+			<br>
+			<a href="tel:">Click Here to Call</a>
+			<br>
+			<br>
+			This number has been taken from the settings breakdown panel
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Call a seperate company</legend>
+			<br>
+			<label>Please select a company from the dropdown list to get the telephone number and call them</label>
+			<select id="comps" onchange="getTel()">
+				<option value="4765 842 6479">RAC</option>
+				<option value="5657 546 3865">AA</option>
+				<option value="4754 472 6435">Green Flag</option>
+				<option value="8587 652 5693">Autoaid Breakdown</option>
+			</select>
+			<br>
+			<label id="telNum">Telephone number: 4765 842 6479</label>
+			<br>
+			<a href="tel:">Click here to call</a>
+		</fieldset>
+	</fieldset>
+
+	<br>
+	<br>
+	<span class="btn" onclick="top.window.location.href='../index.htm'">Go back to the home page</span>
+
+
+	<script type="text/javascript">
+		function getTel() {
+			var val = document.getElementById('comps').value;
+			document.getElementById('telNum').innerHTML = "Telephone number: " + val;
+		}
+	</script>
+</body>
+</html>

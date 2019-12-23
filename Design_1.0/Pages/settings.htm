@@ -50,6 +50,23 @@
 			font-size: 24px;
 			cursor: pointer;
 		}
+		#inptBx {
+			width: 90%;
+			padding: 16px;
+			padding-left: 5px;
+			margin: 5px;
+			border: 2px solid #ddd;
+			border-bottom-right-radius: 7px;
+			z-index: 99;
+			font-size: 14px;
+		}
+		#inptBx:focus {
+			outline: none;
+			border: 2px solid #05b3f7;
+		}
+		#inptBx:hover {
+			border: 2px solid #05b3f7;
+		}
 	</style>
 </head>
 <body>
@@ -62,9 +79,8 @@
 			<option>Aviva</option>
 			<option>Churchill</option>
 			<option>Co-op</option>
-			<option>Confused.com</option>
 			<option>Direct Line</option>
-			<option>John Lewis</option>
+			<option>CIA</option>
 		</select>
 		<br>
 	</fieldset>
@@ -75,6 +91,16 @@
 		<br>
 		<label>Automatically check fuel, tyre pressure, lights, battery:</label> <input type="checkbox" checked> 
 		<br>
+	</fieldset>
+
+	<fieldset>
+		<legend>Break Down</legend>
+		<label>Car insurance break down number</label>
+		<br>
+		<input type="number" id="inptBx" placeholder="Telephone number, e.g. 11111111111">
+		<br>
+		<label>Activate</label>
+		<input type="checkbox">
 	</fieldset>
 
 	<br>

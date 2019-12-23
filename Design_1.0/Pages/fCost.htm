@@ -27,7 +27,7 @@
 		.chartItem {
 			padding: 32px;
 			margin: 2px;
-			width: 49%;
+			width: 53%;
 			background-color: #ddd;
 			border: 2px solid #05b3f7;
 			cursor: pointer;
@@ -98,7 +98,7 @@
 	<span class="bigT">Fuel Costs</span>
 	<br>
 	<div id="chart">
-		<span class="petrol" id="petrol">Petrol Prices (pence per litre)</span>
+		<span class="petrol" id="petrol">Petrol Prices (pounds per litre)</span>
 	</div>
 	<br>
 	<br>
@@ -112,7 +112,7 @@
 
 
 	<div id="chart2">
-		<span class="diesel" id="diesel">Diesel Prices (pence per litre)</span>
+		<span class="diesel" id="diesel">Diesel Prices (pounds per litre)</span>
 	</div>
 	<br>
 	<br>
@@ -140,14 +140,14 @@
 		// Petrol
 
 		var petrol = {
-			'Asda' : 123,
-			'Tesco' : 124,
-			'Co-op' : 125,
-			'Sainsburys' : 125,
-			'Esso' : 127,
-			'Applegreen' : 127,
-			'BP' : 128,
-			'Shell' : 129
+			'Asda' : 1.23,
+			'Tesco' : 1.24,
+			'Co-op' : 1.25,
+			'Sainsburys' : 1.25,
+			'Esso' : 1.27,
+			'Applegreen' : 1.27,
+			'BP' : 1.28,
+			'Shell' : 1.29
 		}
 
 		var out = "";
@@ -160,20 +160,20 @@
 		chart.innerHTML += out;
 
 		function outPut(value, index) {
-			out = out + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV[index] + ', \'petrol\')"><span class="left">' + value + '</span><span class="right">' + pV[index] + '</span></div>';
+			out = out + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV[index] + ', \'petrol\')"><span class="left">' + value + '</span><span class="right">£' + pV[index] + '</span></div>';
 		}
 
 		// Diesel
 
 		var diesel = {
-			'Asda' : 128,
-			'Tesco' : 129,
-			'Co-op' : 130,
-			'Sainsburys' : 130,
-			'Esso' : 131,
-			'Applegreen' : 131,
-			'BP' : 132,
-			'Shell' : 133
+			'Asda' : 1.28,
+			'Tesco' : 1.29,
+			'Co-op' : 1.30,
+			'Sainsburys' : 1.30,
+			'Esso' : 1.31,
+			'Applegreen' : 1.31,
+			'BP' : 1.32,
+			'Shell' : 1.33
 		}
 
 		var out2 = "";
@@ -186,7 +186,7 @@
 		chart2.innerHTML += out2;
 
 		function outPut2(value, index) {
-			out2 = out2 + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV2[index] + ', \'diesel\')"><span class="left">' + value + '</span><span class="right">' + pV2[index] + '</span></div>';
+			out2 = out2 + '<div class="chartItem" onclick="workOut(\'' + value + '\', ' + pV2[index] + ', \'diesel\')"><span class="left">' + value + '</span><span class="right">£' + pV2[index] + '</span></div>';
 		}
 
 
@@ -207,7 +207,7 @@
 
 		function calculate() {
 			var a = document.getElementById('amount');
-			a.innerHTML = "At " + p + " pence a litre at " + c + ", it will cost you " + document.getElementById("inptBx").value * p + " pence for " + document.getElementById("inptBx").value + " litre(s) of " + f;
+			a.innerHTML = "At £" + p + " a litre at " + c + ", it will cost you £" + document.getElementById("inptBx").value * p + " for " + document.getElementById("inptBx").value + " litre(s) of " + f;
 		}
 	</script>
 </body>
